@@ -1,15 +1,22 @@
+// Added change: always reset the page to the top on refresh.
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+});
+
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
 const menuLinks = document.querySelectorAll('.mobile-nav-links a, .nav a, .brand');
 const year = document.getElementById('year');
 const themeToggle = document.querySelector('.theme-toggle');
-const themeStorageKey = 'portfolio-theme';
 
 if (year) {
   year.textContent = String(new Date().getFullYear());
 }
 
-// Added change
+// Added change: apply the chosen theme to the document and keep the toggle accessible.
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
 
@@ -23,17 +30,6 @@ function applyTheme(theme) {
   themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
 }
 
-// Added change
-function getInitialTheme() {
-  const savedTheme = window.localStorage.getItem(themeStorageKey);
-
-  if (savedTheme === 'dark' || savedTheme === 'light') {
-    return savedTheme;
-  }
-
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 function closeMenu() {
   if (!menuToggle || !mobileMenu) {
     return;
@@ -44,13 +40,13 @@ function closeMenu() {
   mobileMenu.hidden = true;
 }
 
-applyTheme(getInitialTheme());
+// Added change: always start in light mode after every refresh.
+applyTheme('light');
 
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     const nextTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     applyTheme(nextTheme);
-    window.localStorage.setItem(themeStorageKey, nextTheme);
   });
 }
 
@@ -76,3 +72,11 @@ document.addEventListener('keydown', (event) => {
     closeMenu();
   }
 });
+
+// Added change: prevent empty placeholder links from jumping to the top of the page.
+document.querySelectorAll('[data-disabled-link="true"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+  });
+});
+

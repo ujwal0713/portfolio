@@ -313,8 +313,9 @@ svg {
 }
 
 .section {
-  padding: 5rem 0;
-}
+    padding: 5rem 0;
+    scroll-margin-top: 5.5rem;
+  }
 
 .section-muted {
   background: #f3f4f6;
@@ -671,9 +672,9 @@ svg {
 
 
 .about-photo-wrap {
-  margin-top: 1.4rem;
-  margin-bottom: 1.4rem;
-}
+    margin-top: 2.1rem;
+    margin-bottom: 1.4rem;
+  }
 
 
 
@@ -711,6 +712,13 @@ svg {
   width: 1.7rem;
   height: 1.7rem;
   fill: currentColor;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+/* Added change: dark mode toggle flips the bat icon when switching themes */
+:root[data-theme="dark"] .theme-toggle svg {
+  transform: rotateY(180deg);
 }
 
 /* Added change: theme-aware surfaces and transition smoothing */
@@ -865,5 +873,22 @@ body,
   background: #f8fafc;
   padding: 0.5rem;
 }
+
+
+
+/* Added change: disabled placeholder project links stay styled but do not look broken */
+.button[aria-disabled="true"] {
+  opacity: 0.72;
+  cursor: not-allowed;
+}
+
+
+/* Added change: mobile anchor offset stays comfortable under the sticky header */
+@media (max-width: 768px) {
+  .section {
+    scroll-margin-top: 4.8rem;
+  }
+}
+
 
 
