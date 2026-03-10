@@ -9,7 +9,7 @@ if (year) {
   year.textContent = String(new Date().getFullYear());
 }
 
-// Added change: apply the chosen theme to the document and keep the toggle accessible.
+// Added change
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
 
@@ -23,7 +23,7 @@ function applyTheme(theme) {
   themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
 }
 
-// Added change: load saved theme first, then fall back to the user system preference.
+// Added change
 function getInitialTheme() {
   const savedTheme = window.localStorage.getItem(themeStorageKey);
 
