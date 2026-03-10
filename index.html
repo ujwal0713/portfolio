@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio website for Ujwal E K, full stack developer and UI/UX designer.">
+  <title>Portfolio | Ujwal E K</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">Portfolio</a>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="nav desktop-nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
+      <div class="container mobile-nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+
+        <h1>Hi, I'm <span>Ujwal E K</span></h1>
+        <p class="hero-subtitle">Full Stack Developer &amp; UI/UX Designer</p>
+        <p class="hero-description">
+          I create beautiful, functional, and user-centered digital experiences that
+          make a difference.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">View My Work</a>
+          <a class="button button-secondary" href="#contact">Contact Me</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.69-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.11-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18A10.9 10.9 0 0 1 12 6.03c.97 0 1.95.13 2.87.39 2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.79.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1s2.49 1.12 2.49 2.5ZM.5 8h4V24h-4V8Zm7 0h3.83v2.19h.05c.53-1.01 1.84-2.19 3.8-2.19 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.56c0-1.8-.03-4.12-2.51-4.12-2.51 0-2.89 1.96-2.89 3.99V24h-4V8Z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1-1.249 1.25A1.25 1.25 0 0 1 17.5 5.5ZM12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5Zm0 2a3 3 0 1 0 3 3 3 3 0 0 0-3-3Z"/></svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.25-1.46 1.5-1.46H17V5.02A28.24 28.24 0 0 0 14.62 5C12.27 5 10.67 6.43 10.67 9.06V11H8v3h2.67v8h2.83Z"/></svg>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2H21.5l-7.12 8.13L22.75 22H16.2l-5.14-6.71L5.19 22H1.93l7.61-8.7L1.5 2h6.72l4.64 6.12L18.24 2Zm-1.14 18h1.8L7.25 3.9H5.32L17.1 20Z"/></svg>
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ujwal0713@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.01L12 13l10-6.99V6H2Zm20 12V8.32l-9.43 6.6a1 1 0 0 1-1.14 0L2 8.32V18h20Z"/></svg>
+          </a>
+        </div>
+
+        <a class="scroll-down" href="#about" aria-label="Scroll down">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 4a1 1 0 0 1 1 1v10.59l3.3-3.29 1.4 1.41-5 5a1 1 0 0 1-1.4 0l-5-5 1.4-1.41 3.3 3.29V5a1 1 0 0 1 1-1Z"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About Me</h2>
+          <div class="profile-photo-wrap about-photo-wrap">
+            <img class="profile-photo" src="https://via.placeholder.com/220x220.png?text=Ujwal+E+K" alt="Ujwal E K profile photo">
+          </div>
+          <p>I am a Full Stack Developer and UI/UX Designer passionate about creating modern, responsive, and user-centered web applications. I enjoy designing intuitive interfaces and developing scalable solutions that provide seamless user experiences. By combining design thinking with strong development skills, I focus on building efficient, visually appealing, and high-performing digital products.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card info-card">
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8.29 6.29 2.59 12l5.7 5.71 1.42-1.42L5.41 12l4.3-4.29-1.42-1.42Zm7.42 0-1.42 1.42L18.59 12l-4.3 4.29 1.42 1.42L21.41 12l-5.7-5.71ZM13.65 4 9.35 20h2.07l4.3-16h-2.07Z"/></svg>
+            </div>
+            <h3>Clean Code</h3>
+            <p>Writing maintainable, scalable, and efficient code is my top priority.</p>
+          </article>
+
+          <article class="card info-card">
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="m12 3 1.91 3.87L18 8l-3 2.92.71 4.14L12 13.06l-3.71 2 .71-4.14L6 8l4.09-1.13L12 3Zm7 13a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM5 16a2 2 0 1 1 0 4 2 2 0 0 1 0-4Z"/></svg>
+            </div>
+            <h3>Creative Design</h3>
+            <p>Blending aesthetics with functionality to create memorable experiences.</p>
+          </article>
+
+          <article class="card info-card">
+            <div class="icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg>
+            </div>
+            <h3>Fast Performance</h3>
+            <p>Optimizing every detail to ensure lightning-fast load times and smooth interactions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>My Projects</h2>
+          <p>Here are some of my recent projects that showcase my skills and experience.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card">
+            <div class="project-image">
+                <img src="assets/survey-preview.svg" alt="Survey Form preview">
+              </div>
+            <div class="project-content">
+              <h3>Survey Form</h3>
+              <p>A responsive survey form page with clean input fields, selection controls, and a modern glassmorphism layout.</p>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Forms</span>
+                <span>Responsive</span>
+              </div>
+              <div class="project-actions">
+                <a class="button button-secondary button-small" href="">Code</a>
+                <a class="button button-primary button-small" href="survey.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-image">
+                <img src="assets/tribute-preview.svg" alt="Tribute Page preview">
+              </div>
+            <div class="project-content">
+              <h3>Tribute Page</h3>
+              <p>A tribute website dedicated to A.P.J. Abdul Kalam featuring biography sections, timeline content, and a clean visual layout.</p>
+              <div class="tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Tribute</span>
+                <span>Layout</span>
+              </div>
+              <div class="project-actions">
+                <a class="button button-secondary button-small" href="">Code</a>
+                <a class="button button-primary button-small" href="tribute.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1637937459053-c788742455be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Portfolio Dashboard preview">
+            </div>
+            <div class="project-content">
+              <h3>Portfolio Dashboard</h3>
+              <p>Analytics dashboard for tracking portfolio performance with interactive charts.</p>
+              <div class="tags">
+                <span>React</span>
+                <span>D3.js</span>
+                <span>Express</span>
+                <span>PostgreSQL</span>
+              </div>
+              <div class="project-actions">
+                <a class="button button-secondary button-small" href="https://github.com" target="_blank" rel="noopener noreferrer">Code</a>
+                <a class="button button-primary button-small" href="https://example.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-image">
+              <img src="https://images.unsplash.com/photo-1661246627162-feb0269e0c07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Mobile Banking App preview">
+            </div>
+            <div class="project-content">
+              <h3>Mobile Banking App</h3>
+              <p>Secure mobile banking interface with modern UI and seamless transactions.</p>
+              <div class="tags">
+                <span>React Native</span>
+                <span>Redux</span>
+                <span>Node.js</span>
+                <span>AWS</span>
+              </div>
+              <div class="project-actions">
+                <a class="button button-secondary button-small" href="https://github.com" target="_blank" rel="noopener noreferrer">Code</a>
+                <a class="button button-primary button-small" href="https://example.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Skills &amp; Technologies</h2>
+          <p>A comprehensive overview of my technical skills and the tools I work with.</p>
+        </div>
+
+        <div class="skills-list">
+          <div class="skill-block">
+            <h3>Frontend</h3>
+            <div class="tags tags-outline">
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>JavaScript</span>
+              <span>HTML5</span>
+              <span>CSS3</span>
+              <span>Tailwind CSS</span>
+              <span>Next.js</span>
+              <span>Vue.js</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h3>Backend</h3>
+            <div class="tags tags-outline">
+              <span>Node.js</span>
+              <span>Express</span>
+              <span>Python</span>
+              <span>Django</span>
+              <span>PostgreSQL</span>
+              <span>MongoDB</span>
+              <span>REST API</span>
+              <span>GraphQL</span>
+            </div>
+          </div>
+
+          <div class="skill-block">
+            <h3>Tools &amp; Others</h3>
+            <div class="tags tags-outline">
+              <span>Git</span>
+              <span>Docker</span>
+              <span>AWS</span>
+              <span>Figma</span>
+              <span>Jest</span>
+              <span>CI/CD</span>
+              <span>Agile</span>
+              <span>UI/UX</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Get In Touch</h2>
+          <p>Have a project in mind or want to collaborate? Feel free to reach out!</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="form-card">
+            <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact">
+              <p class="hidden-field">
+                <label>Do not fill this field if you are human <input name="bot-field"></label>
+              </p>
+
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" required>
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="your.email@example.com" required>
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+
+              <button class="button button-primary button-submit" type="submit">Send Message</button>
+            </form>
+          </article>
+
+          <div class="contact-info">
+            <div>
+              <h3>Contact Information</h3>
+              <p>Feel free to reach out through any of these channels. I'm always open to discussing new projects and opportunities.</p>
+            </div>
+
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.01L12 13l10-6.99V6H2Zm20 12V8.32l-9.43 6.6a1 1 0 0 1-1.14 0L2 8.32V18h20Z"/></svg>
+                </div>
+                <div>
+                  <span>Email</span>
+                  <a href="mailto:ujwal0713@gmail.com">ujwal0713@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.1.37 2.27.56 3.45.56a1 1 0 0 1 1 1V21a1 1 0 0 1-1 1C10.29 22 2 13.71 2 3a1 1 0 0 1 1-1h4.5a1 1 0 0 1 1 1c0 1.18.19 2.35.56 3.45a1 1 0 0 1-.24 1.01l-2.2 2.33Z"/></svg>
+                </div>
+                <div>
+                  <span>Phone</span>
+                  <a href="tel:+918197813681">+91 8197813681</a>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg>
+                </div>
+                <div>
+                  <span>Location</span>
+                  <p>Bengaluru, India</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="availability">
+              <h4>Available for</h4>
+              <ul>
+                <li>Freelance projects</li>
+                <li>Full-time opportunities</li>
+                <li>Consulting &amp; advice</li>
+                <li>Speaking engagements</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Ujwal E K</h3>
+        <p>Full Stack Developer passionate about creating impactful digital experiences.</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Connect</h4>
+        <div class="social-links footer-social">
+          <a href="https://github.com/ujwal0713" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.96-3.2.69-3.87-1.54-3.87-1.54-.53-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.11-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18A10.9 10.9 0 0 1 12 6.03c.97 0 1.95.13 2.87.39 2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.79.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ujwal-e-k-99786537b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1s2.49 1.12 2.49 2.5ZM.5 8h4V24h-4V8Zm7 0h3.83v2.19h.05c.53-1.01 1.84-2.19 3.8-2.19 4.06 0 4.81 2.67 4.81 6.15V24h-4v-7.56c0-1.8-.03-4.12-2.51-4.12-2.51 0-2.89 1.96-2.89 3.99V24h-4V8Z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1.25 1.25 0 1 1-1.249 1.25A1.25 1.25 0 0 1 17.5 5.5ZM12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5Zm0 2a3 3 0 1 0 3 3 3 3 0 0 0-3-3Z"/></svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.87.25-1.46 1.5-1.46H17V5.02A28.24 28.24 0 0 0 14.62 5C12.27 5 10.67 6.43 10.67 9.06V11H8v3h2.67v8h2.83Z"/></svg>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.24 2H21.5l-7.12 8.13L22.75 22H16.2l-5.14-6.71L5.19 22H1.93l7.61-8.7L1.5 2h6.72l4.64 6.12L18.24 2Zm-1.14 18h1.8L7.25 3.9H5.32L17.1 20Z"/></svg>
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ujwal0713@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h20a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 2v.01L12 13l10-6.99V6H2Zm20 12V8.32l-9.43 6.6a1 1 0 0 1-1.14 0L2 8.32V18h20Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Ujwal E K. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

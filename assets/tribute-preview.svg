@@ -1,0 +1,27 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tribute-bg" x1="82" y1="66" x2="1118" y2="609" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1B3A"/>
+      <stop offset="0.52" stop-color="#1D4ED8"/>
+      <stop offset="1" stop-color="#6BA8FF"/>
+    </linearGradient>
+    <linearGradient id="tribute-accent" x1="513" y1="538" x2="929" y2="538" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#FDE68A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="40" fill="url(#tribute-bg)"/>
+  <rect x="126" y="82" width="948" height="511" rx="34" fill="#F8FAFC" fill-opacity="0.1" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="3"/>
+  <circle cx="333" cy="264" r="122" fill="#F8FAFC" fill-opacity="0.12"/>
+  <circle cx="333" cy="248" r="72" fill="#E2E8F0" fill-opacity="0.92"/>
+  <path d="M249 355C249 305.294 289.294 265 339 265H345C394.706 265 435 305.294 435 355V377H249V355Z" fill="#E2E8F0" fill-opacity="0.92"/>
+  <text x="720" y="176" fill="#FFFFFF" font-size="44" font-family="Segoe UI, Arial, sans-serif" font-weight="700" text-anchor="middle">Tribute Page</text>
+  <text x="720" y="222" fill="#DBEAFE" font-size="21" font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">A.P.J. Abdul Kalam showcase preview</text>
+  <rect x="513" y="278" width="416" height="18" rx="9" fill="#FFFFFF" fill-opacity="0.28"/>
+  <rect x="513" y="312" width="356" height="18" rx="9" fill="#FFFFFF" fill-opacity="0.22"/>
+  <rect x="513" y="346" width="389" height="18" rx="9" fill="#FFFFFF" fill-opacity="0.22"/>
+  <rect x="513" y="420" width="416" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.18"/>
+  <rect x="513" y="452" width="416" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.18"/>
+  <rect x="513" y="484" width="416" height="12" rx="6" fill="#FFFFFF" fill-opacity="0.18"/>
+  <rect x="513" y="530" width="416" height="16" rx="8" fill="url(#tribute-accent)"/>
+</svg>

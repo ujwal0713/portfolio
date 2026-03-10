@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survey Form</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+/* Added change: deeper background for better contrast with transparent surfaces */
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:32px 16px;
+    background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 28%),
+        linear-gradient(135deg,#0f172a,#1d4ed8 55%, #0ea5a4);
+}
+
+/* Added change: single centered wrapper so intro content sits inside the same box */
+.page-shell{
+    width:min(100%, 760px);
+}
+
+/* Added change: smoother transparent card instead of a solid block */
+.form-container{
+    background:rgba(255,255,255,0.16);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    padding:30px 32px;
+    width:100%;
+    border-radius:24px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.18);
+    color:#ffffff;
+    border:1px solid rgba(255,255,255,0.22);
+}
+
+h2{
+    text-align:center;
+    margin:0 0 8px;
+}
+
+/* Added change: intro section moved inside the same main box */
+.survey-intro{
+    margin-bottom:22px;
+}
+
+.survey-intro p{
+    margin:0 0 16px;
+    text-align:center;
+    color:rgba(255,255,255,0.92);
+}
+
+/* Added change: intro chips now live inside the form container */
+.info-points{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:12px;
+}
+
+.info-chip{
+    padding:12px 14px;
+    border-radius:14px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.2);
+    font-size:0.92rem;
+    text-align:center;
+}
+
+/* Added change: helper text under heading */
+.form-subtitle{
+    text-align:center;
+    margin:0 0 22px;
+    color:rgba(255,255,255,0.88);
+    font-size:0.95rem;
+}
+
+.input-group{
+    margin-bottom:15px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+    color:#f8fafc;
+}
+
+/* Added change: inputs keep transparency but use a darker readable field tone */
+input, select, textarea{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:12px;
+    outline:none;
+    background:rgba(15,23,42,0.32);
+    color:#f8fafc;
+}
+
+input::placeholder,
+textarea::placeholder{
+    color:rgba(226,232,240,0.75);
+}
+
+input:focus, select:focus, textarea:focus{
+    border-color:rgba(191,219,254,0.7);
+    box-shadow:0 0 0 4px rgba(191,219,254,0.16);
+}
+
+/* Added change: custom select shell for a cleaner dropdown appearance */
+.select-wrap{
+    position:relative;
+}
+
+.select-wrap::after{
+    content:'▾';
+    position:absolute;
+    right:14px;
+    top:50%;
+    transform:translateY(-50%);
+    color:rgba(255,255,255,0.9);
+    pointer-events:none;
+    font-size:0.95rem;
+}
+
+.select-wrap select{
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    padding-right:42px;
+    cursor:pointer;
+    /* Added change: high-contrast dropdown colors for readability */
+    background:rgba(248,250,252,0.96);
+    color:#0f172a;
+    border-color:rgba(148,163,184,0.75);
+}
+
+/* Added change: improve visibility inside expanded dropdown list */
+.select-wrap select option{
+    background:#f8fbff;
+    color:#0f172a;
+}
+
+.options{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+/* Added change: option labels styled for visibility on the darker transparent theme */
+.options label{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin:0;
+    font-weight:500;
+    color:#f8fafc;
+}
+
+/* Added change: checkbox and radio accents for better visibility */
+.options input{
+    width:auto;
+    accent-color:#93c5fd;
+}
+
+/* Added change: range row and live value badge */
+.range-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+/* Added change: dedicated slider shell and fill for smoother dragging */
+.range-control{
+    position:relative;
+    flex:1;
+    height:18px;
+    display:flex;
+    align-items:center;
+}
+
+.range-control::before{
+    content:"";
+    position:absolute;
+    inset:4px 0;
+    border-radius:999px;
+    background:rgba(255,255,255,0.28);
+    box-shadow:inset 0 1px 2px rgba(15,23,42,0.14);
+}
+
+/* Added change: gpu-friendly fill layer instead of repainting the whole slider track */
+.range-fill{
+    position:absolute;
+    left:0;
+    right:0;
+    top:4px;
+    bottom:4px;
+    border-radius:999px;
+    background:linear-gradient(90deg, #14b8a6, #38bdf8);
+    transform-origin:left center;
+    transform:scaleX(0.5);
+    will-change:transform;
+    pointer-events:none;
+}
+
+/* Added change: transparent native slider on top so dragging feels direct */
+.range-row input[type="range"]{
+    position:relative;
+    z-index:1;
+    width:100%;
+    appearance:none;
+    -webkit-appearance:none;
+    height:18px;
+    border:none;
+    background:transparent;
+    box-shadow:none;
+    padding:0;
+    margin:0;
+    cursor:pointer;
+    touch-action:pan-y;
+}
+
+.range-row input[type="range"]:focus{
+    box-shadow:none;
+}
+
+.range-row input[type="range"]::-webkit-slider-runnable-track{
+    height:18px;
+    background:transparent;
+}
+
+/* Added change: lighter thumb styling so the handle moves more cleanly */
+.range-row input[type="range"]::-webkit-slider-thumb{
+    appearance:none;
+    -webkit-appearance:none;
+    width:18px;
+    height:18px;
+    margin-top:0;
+    border-radius:50%;
+    background:#ffffff;
+    border:2px solid #0f766e;
+    box-shadow:0 2px 8px rgba(15,23,42,0.18);
+    transition:transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.range-row input[type="range"]:active::-webkit-slider-thumb{
+    transform:scale(1.04);
+    box-shadow:0 3px 10px rgba(15,23,42,0.22);
+}
+
+.range-row input[type="range"]::-moz-range-track{
+    height:18px;
+    background:transparent;
+    border:none;
+}
+
+.range-row input[type="range"]::-moz-range-progress{
+    height:18px;
+    background:transparent;
+}
+
+.range-row input[type="range"]::-moz-range-thumb{
+    width:18px;
+    height:18px;
+    border:none;
+    border-radius:50%;
+    background:#ffffff;
+    box-shadow:0 2px 8px rgba(15,23,42,0.18);
+}
+
+.range-value{
+    min-width:56px;
+    text-align:center;
+    padding:8px 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.18);
+    font-weight:700;
+}
+
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:12px;
+    background:#ffffff;
+    color:#1d4ed8;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#0f172a;
+    color:#ffffff;
+}
+
+/* Added change: success message area */
+.form-feedback{
+    margin-top:14px;
+    text-align:center;
+    font-size:0.95rem;
+    color:#ffffff;
+    min-height:22px;
+}
+
+/* Added change: responsive stacking for chips inside the same box */
+@media(max-width:640px){
+    .info-points{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+    .form-container{
+        padding:24px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="page-shell">
+    <div class="form-container">
+        <h2>Developer Survey</h2>
+        <p class="form-subtitle">Tell us a little about your learning journey and interests.</p>
+
+        <div class="survey-intro">
+            <p>Share your background, skills, and suggestions through this clean developer-focused survey form.</p>
+            <div class="info-points">
+                <div class="info-chip">Quick to fill and mobile-friendly</div>
+                <div class="info-chip">Modern frontend presentation</div>
+                <div class="info-chip">Clear and accessible form flow</div>
+            </div>
+        </div>
+
+        <form id="survey-form">
+            <div class="input-group">
+                <label for="full-name">Full Name</label>
+                <input id="full-name" type="text" placeholder="Enter your name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email-address">Email Address</label>
+                <input id="email-address" type="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="age">Age</label>
+                <input id="age" type="number" min="10" max="100" placeholder="Enter your age">
+            </div>
+
+            <div class="input-group">
+                <label for="role">Role</label>
+                <div class="select-wrap">
+                    <select id="role">
+                        <option>Student</option>
+                        <option>Frontend Developer</option>
+                        <option>Backend Developer</option>
+                        <option>Full Stack Developer</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Would you recommend coding to others?</label>
+                <div class="options">
+                    <label><input type="radio" name="rec" required> Yes</label>
+                    <label><input type="radio" name="rec"> No</label>
+                    <label><input type="radio" name="rec"> Maybe</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Technologies you know</label>
+                <div class="options">
+                    <label><input type="checkbox"> HTML</label>
+                    <label><input type="checkbox"> CSS</label>
+                    <label><input type="checkbox"> JavaScript</label>
+                    <label><input type="checkbox"> Python</label>
+                    <label><input type="checkbox"> Java</label>
+                    <label><input type="checkbox"> React</label>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="experience-range">Experience Level</label>
+                <div class="range-row">
+                    <div class="range-control">
+                        <div class="range-fill" id="range-fill"></div>
+                        <input id="experience-range" type="range" min="0" max="10" step="0.1" value="5">
+                    </div>
+                    <span class="range-value" id="range-value">5/10</span>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="suggestions">Any Suggestions</label>
+                <textarea id="suggestions" rows="3" placeholder="Write here..."></textarea>
+            </div>
+
+            <button type="submit">Submit Survey</button>
+            <p class="form-feedback" id="form-feedback"></p>
+        </form>
+    </div>
+</div>
+
+<script>
+// Added change: live range indicator for the experience slider
+const rangeInput = document.getElementById('experience-range');
+const rangeValue = document.getElementById('range-value');
+const rangeFill = document.getElementById('range-fill');
+const surveyForm = document.getElementById('survey-form');
+const formFeedback = document.getElementById('form-feedback');
+let rangeFrame = null;
+
+// Added change: keep the slider fill and badge synced with requestAnimationFrame for smoother dragging
+function updateRangeUI() {
+    if (!rangeInput || !rangeValue) {
+        return;
+    }
+
+    const min = Number(rangeInput.min) || 0;
+    const max = Number(rangeInput.max) || 10;
+    const value = Number(rangeInput.value);
+    const progress = (value - min) / (max - min);
+    // Added change: keep smooth drag but display only whole numbers
+    const formattedValue = String(Math.round(value));
+
+    if (rangeFill) {
+        rangeFill.style.transform = `scaleX(${progress})`;
+    }
+
+    rangeValue.textContent = `${formattedValue}/10`;
+}
+
+// Added change: batch slider repaint work so dragging feels less laggy
+function queueRangeUIUpdate() {
+    if (rangeFrame !== null) {
+        cancelAnimationFrame(rangeFrame);
+    }
+
+    rangeFrame = requestAnimationFrame(() => {
+        updateRangeUI();
+        rangeFrame = null;
+    });
+}
+
+if (rangeInput && rangeValue) {
+    updateRangeUI();
+    rangeInput.addEventListener('input', queueRangeUIUpdate);
+}
+
+// Added change: lightweight client-side feedback so the demo feels complete
+if (surveyForm && formFeedback) {
+    surveyForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        formFeedback.textContent = 'Thank you. Your survey response has been captured in this demo.';
+        surveyForm.reset();
+        if (rangeInput) {
+            rangeInput.value = '5';
+        }
+        updateRangeUI();
+    });
+}
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
