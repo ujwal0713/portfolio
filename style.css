@@ -215,6 +215,7 @@ svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   width: 2.6rem;
   height: 2.6rem;
   color: #4b5563;
@@ -225,6 +226,34 @@ svg {
 .social-links a:hover {
   color: var(--primary);
   transform: translateY(-2px);
+}
+
+/* Added change: show social app names as hover tooltips using existing aria-label values */
+.social-links a::after {
+  content: attr(aria-label);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 0.18rem);
+  transform: translateX(-50%) translateY(0.12rem);
+  padding: 0.3rem 0.55rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.14);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.social-links a:hover::after,
+.social-links a:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .scroll-down {
@@ -647,5 +676,194 @@ svg {
 }
 
 
+
+
+
+/* Added change: header controls keep desktop nav and theme toggle aligned */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Added change: Batman-style dark mode toggle */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.theme-toggle svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: currentColor;
+}
+
+/* Added change: theme-aware surfaces and transition smoothing */
+body,
+.header,
+.mobile-nav,
+.card,
+.form-card,
+.tags span,
+.tags-outline span,
+.button-secondary,
+.theme-toggle,
+.form-card input,
+.form-card textarea {
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Added change: dark theme palette */
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --surface: #050505;
+  --text: #f5f5f5;
+  --muted: #a1a1aa;
+  --line: #1c1c1f;
+  --primary: #60a5fa;
+  --primary-dark: #0a0a0a;
+  --footer: #000000;
+  --shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+  --shadow-hover: 0 18px 36px rgba(0, 0, 0, 0.34);
+}
+
+/* Added change: dark mode component styling */
+:root[data-theme="dark"] .header {
+  background: rgba(0, 0, 0, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme="dark"] .mobile-nav {
+  background: rgba(0, 0, 0, 0.98);
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme="dark"] .nav a,
+:root[data-theme="dark"] .mobile-nav-links a,
+:root[data-theme="dark"] .social-links a,
+:root[data-theme="dark"] .scroll-down,
+:root[data-theme="dark"] .contact-item a,
+:root[data-theme="dark"] .contact-item p {
+  color: var(--text);
+}
+
+/* Added change: keep social hover tooltips readable in AMOLED mode */
+:root[data-theme="dark"] .social-links a::after {
+  background: #f5f5f5;
+  color: #050505;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="dark"] .section-muted {
+  background: #000000;
+}
+
+:root[data-theme="dark"] .button-primary {
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: #f8fbff;
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.22);
+}
+
+:root[data-theme="dark"] .button-secondary,
+:root[data-theme="dark"] .theme-toggle,
+:root[data-theme="dark"] .menu-toggle {
+  background: #050505;
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .button-secondary:hover,
+:root[data-theme="dark"] .theme-toggle:hover,
+:root[data-theme="dark"] .menu-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme="dark"] .menu-toggle span {
+  background: var(--text);
+}
+
+:root[data-theme="dark"] .project-image,
+:root[data-theme="dark"] .profile-photo {
+  background: #050505;
+}
+
+:root[data-theme="dark"] .tags span {
+  background: #0a0a0a;
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .tags-outline span {
+  background: #050505;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+:root[data-theme="dark"] .tags-outline span:hover {
+  background: #0d0d0d;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.28);
+}
+
+:root[data-theme="dark"] .form-card {
+  border-color: rgba(125, 194, 255, 0.14);
+}
+
+:root[data-theme="dark"] .form-card input,
+:root[data-theme="dark"] .form-card textarea {
+  background: #050505;
+  border-color: #1f1f22;
+  color: var(--text);
+}
+
+:root[data-theme="dark"] .form-card input::placeholder,
+:root[data-theme="dark"] .form-card textarea::placeholder {
+  color: #71717a;
+}
+
+:root[data-theme="dark"] .footer {
+  background: #000000;
+}
+
+/* Added change: mobile header control spacing with theme toggle */
+@media (max-width: 768px) {
+  .header-controls {
+    gap: 0.7rem;
+  }
+
+  .theme-toggle,
+  .menu-toggle {
+    width: 2.85rem;
+    height: 2.85rem;
+  }
+}
+
+/* Added change: AMOLED dark mode keeps cards and panels near-black for lower-power displays */
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .form-card,
+:root[data-theme="dark"] .contact-info {
+  background: #050505;
+  border-color: #1a1a1d;
+}
+
+/* Added change: keep transparent SVG profile artwork visible in AMOLED mode */
+:root[data-theme="dark"] .profile-photo {
+  background: #f8fafc;
+  padding: 0.5rem;
+}
 
 

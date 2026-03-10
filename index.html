@@ -14,18 +14,25 @@
   <header class="header">
     <div class="container nav-wrap">
       <a class="brand" href="#home">Portfolio</a>
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="nav desktop-nav" aria-label="Primary navigation">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-controls">
+        <nav class="nav desktop-nav" aria-label="Primary navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Enable dark mode" aria-pressed="false" title="Toggle dark mode">
+          <svg viewBox="0 0 64 32" aria-hidden="true">
+            <path d="M2 10c5 1 9 4 11 8-.5 2-1 4-.5 7 5-1 10-1 14 1 2 1 4 3 5.5 6 1.5-3 3.5-5 5.5-6 4-2 9-2 14-1 .5-3 0-5-.5-7 2-4 6-7 11-8H42c-.2 2-.7 4-1.7 5-1.8 1.6-5 2.1-7.3 2.1l-.8-2.8-.8 2.8c-2.3 0-5.5-.5-7.3-2.1-1-1-1.5-3-1.7-5H2Z" />
+          </svg>
+        </button>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
     <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" hidden>
       <div class="container mobile-nav-links">
@@ -88,7 +95,7 @@
         <div class="section-heading">
           <h2>About Me</h2>
           <div class="profile-photo-wrap about-photo-wrap">
-            <img class="profile-photo" src="https://via.placeholder.com/220x220.png?text=Ujwal+E+K" alt="Ujwal E K profile photo">
+            <img class="profile-photo" src="assets/profile-placeholder.svg" alt="Ujwal E K profile photo">
           </div>
           <p>I am a Full Stack Developer and UI/UX Designer passionate about creating modern, responsive, and user-centered web applications. I enjoy designing intuitive interfaces and developing scalable solutions that provide seamless user experiences. By combining design thinking with strong development skills, I focus on building efficient, visually appealing, and high-performing digital products.</p>
         </div>
@@ -144,7 +151,7 @@
               </div>
               <div class="project-actions">
                 <a class="button button-secondary button-small" href="https://github.com/ujwal0713/portfolio/blob/main/survey.html">Code</a>
-                <a class="button button-primary button-small" href="survey.html".html" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                <a class="button button-primary button-small" href="survey.html" target="_blank" rel="noopener noreferrer">Live Demo</a>
               </div>
             </div>
           </article>
@@ -396,6 +403,8 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
 
 
 
